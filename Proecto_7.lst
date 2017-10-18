@@ -1,0 +1,169 @@
+MPASM  5.51                     PROECTO_7.ASM   10-18-2017  9:10:12         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+2007   3F56           00001         __CONFIG 3F56
+                      00002 
+                      00003 ;_______________PROGRAMA 3 SECUENCIAS______________
+                      00004 
+                      00005 ;DECLARACION DE REGISTRO
+                      00006 
+  00000006            00007 PORTB EQU 0X06                                                                                          
+                            ;HABILITA EL PORTB
+  00000003            00008 STATUS EQU 0X03                                                                                         
+                            ;HABILITA EL CAMBO DE BANCO
+  00000086            00009 TRISB EQU 0X86                                                                                          
+                                    ;HABILITA LA VONFIGURACION I/O
+                      00010 
+                      00011 #DEFINE RP0 STATUS,5                                                                                    
+                            ;DEFINIMOS QUE RP0 ES IGUAL A STATUS,5 
+                      00012 
+                      00013 ;ORIGEN DEL PROGRAMA
+                      00014 
+0000                  00015         ORG 0X00                                                                                        
+                                            ;INICIO DEL PROGRAMA
+                      00016 
+                      00017 ;CONFIGURACION DEL PIC
+                      00018 
+0000   1683           00019         BSF RP0                                                                                         
+                                            ;CAMBIO AL BANCO 1      
+0001   3000           00020         MOVLW   B'00000000'                                                                             
+                                    ;MOVER UN NUMERO BINARIO A W
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0002   0086           00021         MOVWF TRISB                                                                                     
+                                    ;MOVER DE W A TRISB
+0003   1283           00022         BCF RP0                                                                                         
+                                            ;MOVER AL BANCO 0
+0004   3000           00023         MOVLW   B'00000000'                                                                             
+                                    ;MOVER UN NUMERO BINARIO A W
+0005   0086           00024         MOVWF PORTB                                                                                     
+                                    ;MOVER DE W A PORTB
+                      00025         
+                      00026 
+                      00027 ;PROGRAMA PRINCIPAL
+                      00028 
+0006                  00029 STR 
+0006   3001           00030         MOVLW B'00000001'
+0007   0086           00031         MOVWF PORTB
+0008   0000           00032         NOP
+0009   3002           00033         MOVLW B'00000010'
+000A   0086           00034         MOVWF PORTB
+000B   0000           00035         NOP
+000C   3004           00036         MOVLW B'00000100'
+000D   0086           00037         MOVWF PORTB
+000E   0000           00038         NOP
+000F   3008           00039         MOVLW B'00001000'
+0010   0086           00040         MOVWF PORTB
+0011   0000           00041         NOP
+MPASM  5.51                     PROECTO_7.ASM   10-18-2017  9:10:12         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0012   3010           00042         MOVLW B'00010000'
+0013   0086           00043         MOVWF PORTB
+0014   0000           00044         NOP
+0015   3020           00045         MOVLW B'00100000'
+0016   0086           00046         MOVWF PORTB
+0017   0000           00047         NOP
+0018   3040           00048         MOVLW B'01000000'
+0019   0086           00049         MOVWF PORTB
+001A   0000           00050         NOP
+001B   3080           00051         MOVLW B'10000000'
+001C   0086           00052         MOVWF PORTB
+001D   0000           00053         NOP
+001E   3040           00054         MOVLW B'01000000'
+001F   0086           00055         MOVWF PORTB
+0020   0000           00056         NOP
+0021   3020           00057         MOVLW B'00100000'
+0022   0086           00058         MOVWF PORTB
+0023   0000           00059         NOP
+0024   3010           00060         MOVLW B'00010000'
+0025   0086           00061         MOVWF PORTB
+0026   0000           00062         NOP
+0027   3008           00063         MOVLW B'00001000'
+0028   0086           00064         MOVWF PORTB
+0029   0000           00065         NOP
+002A   3004           00066         MOVLW B'00000100'
+002B   0086           00067         MOVWF PORTB
+002C   0000           00068         NOP
+002D   3002           00069         MOVLW B'00000010'
+002E   0086           00070         MOVWF PORTB
+002F   0000           00071         NOP
+0030   3001           00072         MOVLW B'00000001'
+0031   0086           00073         MOVWF PORTB
+0032   0000           00074         NOP
+0033   3000           00075         MOVLW B'00000000'
+0034   0086           00076         MOVWF PORTB
+0035   0000           00077         NOP
+0036   3081           00078         MOVLW B'10000001'
+0037   0086           00079         MOVWF PORTB
+0038   0000           00080         NOP
+0039   3042           00081         MOVLW B'01000010'
+003A   0086           00082         MOVWF PORTB
+003B   0000           00083         NOP
+003C   3024           00084         MOVLW B'00100100'
+003D   0086           00085         MOVWF PORTB
+003E   0000           00086         NOP
+003F   3018           00087         MOVLW B'00011000'
+0040   0086           00088         MOVWF PORTB
+0041   0000           00089         NOP
+0042   3024           00090         MOVLW B'00100100'
+0043   0086           00091         MOVWF PORTB
+0044   0000           00092         NOP
+0045   3042           00093         MOVLW B'01000010'
+0046   0086           00094         MOVWF PORTB
+MPASM  5.51                     PROECTO_7.ASM   10-18-2017  9:10:12         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0047   0000           00095         NOP
+0048   3081           00096         MOVLW B'10000001'
+0049   0086           00097         MOVWF PORTB
+004A   0000           00098         NOP
+004B   3000           00099         MOVLW B'00000000'
+004C   0086           00100         MOVWF PORTB
+004D   2806           00101         GOTO    STR     
+                      00102 
+                      00103 ;SUBRRUTINAS
+                      00104 
+                      00105 ;FIN DEL PROGRAMA
+                      00106         END                                                                                             
+                                            ;FIN DEL PROGRAMA
+MPASM  5.51                     PROECTO_7.ASM   10-18-2017  9:10:12         PAGE  4
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+PORTB                             00000006
+RP0                               STATUS,5
+STATUS                            00000003
+STR                               00000006
+TRISB                             00000086
+__16F648A                         00000001
+__DEBUG                           1
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+0000 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0040 : XXXXXXXXXXXXXX-- ---------------- ---------------- ----------------
+2000 : -------X-------- ---------------- ---------------- ----------------
+
+All other memory blocks unused.
+
+Program Memory Words Used:    78
+Program Memory Words Free:  4018
+
+
+Errors   :     0
+Warnings :     0 reported,     0 suppressed
+Messages :     1 reported,     0 suppressed
+
+
